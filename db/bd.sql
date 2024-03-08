@@ -1,0 +1,1 @@
+aqui ficam as configuracoes de conexao com o banco e a estrutura dele
