@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -13,6 +17,8 @@
 </head>
 
 <body>
+    <?= $_SESSION['email'] ?>
+    <a href="/defi/controllers/logout.php">Sair</a>
     <header>
         <nav>
 
