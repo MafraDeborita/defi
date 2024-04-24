@@ -86,6 +86,7 @@ class Usuario
         if($usuario['id_usuario'] && password_verify($senha, $usuario['senha'])){
             session_start();
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
+            $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['foto_usuario'] = $usuario['foto_usuario'];
 

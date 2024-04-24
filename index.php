@@ -17,8 +17,7 @@ session_start();
 </head>
 
 <body>
-    <?= $_SESSION['email'] ?>
-    <a href="/defi/controllers/logout.php">Sair</a>
+    <a href="/defi/views/perfil.php">Perfil</a>
     <header>
         <nav>
 

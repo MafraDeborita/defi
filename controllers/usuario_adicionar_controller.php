@@ -8,13 +8,21 @@ try {
     $senha = $_POST['senha'];
     $senha = password_hash($senha, PASSWORD_DEFAULT);
 
-    $foto = null;
+    if(!empty($_FILES['foto']['tmp_name'])){
+        $foto = file_get_contents($_FILES['foto']['tmp_name']);
+    }
 
     $usuario = new Usuario();
     $usuario->nome = $nome;
     $usuario->email = $email;
     $usuario->senha = $senha;
-    $usuario->foto_usuario = $foto;
+    
+    if($foto){
+        $usuario->foto_usuario = $foto;
+    } else {
+        $usuario->foto_usuario = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/defi/imgs/dummy_usuario.png');
+    }
+    
 
     $usuario->criar();
 
