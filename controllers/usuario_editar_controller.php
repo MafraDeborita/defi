@@ -9,11 +9,6 @@ try {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
 
-    if(isset($_POST['senha'])){
-        $senha = $_POST['senha'];
-        $senha = password_hash($senha, PASSWORD_DEFAULT);
-    }
-
     if(!empty($_FILES['foto']['tmp_name'])){
         $foto = file_get_contents($_FILES['foto']['tmp_name']);
     }
@@ -21,11 +16,6 @@ try {
     $usuario = new Usuario($id);
     $usuario->nome = $nome;
     $usuario->email = $email;
-    if($senha){
-        $usuario->senha = $senha;
-    } else {
-        $usuario->senha = $usuario->senha;
-    }
     
     if($foto){
         $usuario->foto_usuario = $foto;

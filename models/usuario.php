@@ -55,13 +55,22 @@ class Usuario
 
     public function atualizar()
     {
-        $sql = 'UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, foto_usuario = :foto WHERE id_usuario = :id';
+        $sql = 'UPDATE usuarios SET nome = :nome, email = :email, foto_usuario = :foto WHERE id_usuario = :id';
         $conexao = Conexao::criaConexao();
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(':nome', $this->nome);
         $stmt->bindValue(':email', $this->email);
-        $stmt->bindValue(':senha', $this->senha);
         $stmt->bindValue(':foto', $this->foto_usuario);
+        $stmt->bindValue(':id', $this->id_usuario);
+        $stmt->execute();
+    }
+
+    public function atualizarSenha()
+    {
+        $sql = 'UPDATE usuarios SET senha = :senha WHERE id_usuario = :id';
+        $conexao = Conexao::criaConexao();
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindValue(':senha', $this->senha);
         $stmt->bindValue(':id', $this->id_usuario);
         $stmt->execute();
     }
@@ -94,5 +103,21 @@ class Usuario
         } else {
             header('Location: /defi/views/login.php');
         }
+    }
+
+    public static function gerarExtrato($id_usuario){
+        $sql = "SELECT e.data_entrada as 'DATA', e.descricao, e.valor_entrada as 'VALOR' FROM entradas e
+        WHERE e.id_usuario = :id 
+        UNION ALL
+        SELECT s.data_saida as 'DATA', s.descricao, -s.valor_saida FROM saidas s
+        WHERE s.id_usuario = :id
+        ORDER BY `DATA` DESC";
+        $conexao = Conexao::criaConexao();
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindValue(':id', $id_usuario);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll();
+        return $resultado;
+
     }
 }

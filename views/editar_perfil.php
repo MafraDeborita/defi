@@ -20,9 +20,6 @@ $usuario = new Usuario($_SESSION['id_usuario']);
         <label for="email">Email</label>
         <input type="email" name="email" id="email" value="<?= $usuario->email ?>">
 
-        <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha">
-
         <label for="foto">Foto</label>
         <input type="file" name="foto" id="foto">
 

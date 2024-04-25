@@ -17,6 +17,7 @@ session_start();
     <p><?= $_SESSION['email'] ?></p>
 
     <a href="/defi/views/editar_perfil.php">Editar Perfil</a>
+    <a href="/defi/views/editar_senha.php">Editar Senha</a>
     <a href="/defi/views/admin/gerenciar_entradas.php">Gerenciar Entradas</a>
     <a href="/defi/views/admin/gerenciar_saidas.php">Gerenciar Saidas</a>
     <a href="/defi/views/admin/gerenciar_categorias.php">Gerenciar Categorias</a>
