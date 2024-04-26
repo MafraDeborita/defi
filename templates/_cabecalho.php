@@ -1,5 +1,6 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/configs/utilitarios.php';
 session_start()
 
 ?>
@@ -15,7 +16,7 @@ session_start()
     <link rel="stylesheet" href="/defi/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="/defi/js/script.js" defer></script>
+    <!-- <script src="/defi/js/script.js" defer></script> -->
 </head>
 
 <body>
@@ -29,21 +30,17 @@ session_start()
                     </a>
                 </div>
                 <div class="left-buttons">
-                    <a href="#">
+                    <a href="/defi/views/admin/gerenciar_entradas.php">
                         <img src="/defi/imgs/img_contas_pagar.png" alt="" />
-                        <span>Contas a pagar</span>
+                        <span>Gerenciar Saidas</span>
                     </a>
-                    <a href="#">
+                    <a href="/defi/views/admin/gerenciar_saidas.php">
                         <img src="/defi/imgs/img_contas_receber.png" alt="" />
-                        <span>Contas a receber</span>
+                        <span>Gerenciar Entradas</span>
                     </a>
-                    <a href="#">
+                    <a href="/defi/views/perfil.php">
                         <img src="/defi/imgs/Img_pessoa.png" alt="" />
-                        <span>Clientes</span>
-                    </a>
-                    <a href="#">
-                        <img src="/defi/imgs/Img_pessoa.png" alt="" />
-                        <span>Fornecedor</span>
+                        <span>Perfil</span>
                     </a>
                     <a href="/defi/views/educacao_financeira.php">
                         <img src="/defi/imgs/img_mensagens.png" alt="" />
