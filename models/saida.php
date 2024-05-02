@@ -50,10 +50,12 @@ class Saida{
 
     public static function listar($id_usuario)
     {
-        $sql = 'SELECT e.*, u.id_usuario, u.nome 
-        FROM saidas e 
+        $sql = 'SELECT s.*, u.id_usuario, u.nome, c.nome_categoria
+        FROM saidas s 
         JOIN usuarios u 
-        ON e.id_usuario = u.id_usuario 
+        ON s.id_usuario = u.id_usuario
+        JOIN categorias c
+        ON c.id_categoria = s.id_categoria 
         WHERE u.id_usuario = :id';
         $conexao = Conexao::criaConexao();
         $stmt = $conexao->prepare($sql);

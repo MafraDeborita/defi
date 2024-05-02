@@ -1,25 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<?php
+$tituloPagina = 'Cadastro';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
+
+?>
+
+
+<section class="nav-right-cont">
     <form action="/defi/controllers/usuario_adicionar_controller.php" method="post" enctype="multipart/form-data">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome">
+        <div class="input-group">
+            <div class="input-box">
+                <label for="nome">Nome</label>
+                <input type="texto" name="nome" id="nome" placeholder="Nome Completo" required>
+            </div>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="exemplo@mail.com" required>
+            </div>
 
-        <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha">
+            <div class="input-box">
+                <label for="password">Senha</label>
+                <input type="password" name="senha" id="password" placeholder="Digite Sua Senha" required>
+            </div>
 
-        <label for="foto">Foto</label>
-        <input type="file" name="foto" id="foto">
+            <div class="input-box">
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" id="foto">
+            </div>
+        </div>
 
-        <input type="submit" value="Cadastrar">
+        <div class="continue-botton">
+            <button class="bEntrar" type="submit">Continuar</button>
+        </div>
+
     </form>
-</body>
-</html>
+</section>
+
+
+
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_rodape.php';
+?>

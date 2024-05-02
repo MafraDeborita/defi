@@ -13,9 +13,16 @@ session_start()
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pi</title>
+
+    <link rel="stylesheet" href="/defi/css/bootstrap.css">
     <link rel="stylesheet" href="/defi/css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script src="/defi/js/bootstrap.bundle.js" defer></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+
     <!-- <script src="/defi/js/script.js" defer></script> -->
 </head>
 
@@ -25,25 +32,41 @@ session_start()
             <div class="left-bar">
                 <div class="logo">
                     <a href="/defi/index.php">
-                        <img src="/defi/imgs/logo.png" alt="" />
+                        <img src="/defi/imgs/logo.png" alt="" class="logo-img" />
                         <span class="title-logo">Início</span>
                     </a>
                 </div>
                 <div class="left-buttons">
-                    <a href="/defi/views/admin/gerenciar_entradas.php">
-                        <img src="/defi/imgs/img_contas_pagar.png" alt="" />
+                    <a href="/defi/views/admin/gerenciar_saidas.php">
+                        <span class="material-symbols-outlined">mintmark</span>
                         <span>Gerenciar Saidas</span>
                     </a>
-                    <a href="/defi/views/admin/gerenciar_saidas.php">
-                        <img src="/defi/imgs/img_contas_receber.png" alt="" />
+                    <a href="/defi/views/admin/gerenciar_entradas.php">
+                        <span class="material-symbols-outlined">price_check</span>
                         <span>Gerenciar Entradas</span>
                     </a>
-                    <a href="/defi/views/perfil.php">
-                        <img src="/defi/imgs/Img_pessoa.png" alt="" />
-                        <span>Perfil</span>
+                    <a href="/defi/views/extrato.php">
+                        <span class="material-symbols-outlined">account_balance</span>
+                        <span>Extrato</span>
+                    </a>
+                    <!-- <a href="/defi/views/graficos.php">
+                        <span class="material-symbols-outlined">pie_chart</span>
+                        <span>Grafico</span>
+                    </a> -->
+                    <a href="/defi/views/editar_perfil.php">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <span>Editar Perfil</span>
+                    </a>
+                    <a href="/defi/views/editar_senha.php">
+                        <span class="material-symbols-outlined">pin</span>
+                        <span>Editar Senha</span>
+                    </a>
+                    <a href="/defi/views/admin/gerenciar_categorias.php">
+                        <span class="material-symbols-outlined">category</span>
+                        <span>Gerenciar Categorias</span>
                     </a>
                     <a href="/defi/views/educacao_financeira.php">
-                        <img src="/defi/imgs/img_mensagens.png" alt="" />
+                        <span class="material-symbols-outlined">school</span>
                         <span>Educação Financeira</span>
                     </a>
                 </div>
@@ -52,13 +75,13 @@ session_start()
         <nav id="right">
             <div class="right-bar">
                 <div class="itens">
-                    <h1>Home</h1>
+                    <h1><?= $tituloPagina ?></h1>
                     <div class="buttons-right">
-                        <input type="search" class="form-control rounded" placeholder="Saldo, Extrato, DRE, etc ..." aria-label="Search" aria-describedby="search-addon" />
+                        <!-- <input type="search" class="form-control rounded" placeholder="Saldo, Extrato, DRE, etc ..." aria-label="Search" aria-describedby="search-addon" /> -->
                         <?php if (!isset($_SESSION['id_usuario'])) : ?>
-                            <a class="login" href="/defi/views/login.php" style="color: #8c52ff">Login</a>
+                            <a class="login-btn" href="/defi/views/login.php" style="color: #8c52ff">Login</a>
                         <?php else : ?>
-                            <a class="login" href="/defi/controllers/logout.php" style="color: #8c52ff">Sair</a>
+                            <a class="login-btn" href="/defi/controllers/logout.php" style="color: #8c52ff">Sair</a>
                         <?php endif; ?>
                     </div>
                 </div>

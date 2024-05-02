@@ -1,5 +1,5 @@
 <?php
-
+$tituloPagina = 'Extrato';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
 
@@ -15,22 +15,17 @@ try {
 
 ?>
 
-<div id="fundoMeio">
+<section class="nav-right-cont">
     <main class="conteudoCentro">
-        <div class="topoConteudo">
-            <img class="imgExtrato" src="/defi/imgs/img_direita_grafico.png" alt="imagem extrato">
-            <p class="topoConteudo2"> EXTRATO</p>
-
-        </div>
         <?php foreach ($listaExtrato as $item) : ?>
             <div class="dadosConteudo">
-                <p id=".data" class="dadosMain">Data: <?= $item['DATA'] ?></p>
-                <p id="origem" class="dadosMain">Descrição: <?= $item['descricao'] ?></p>
+                <p class="dadosMain">Data: <?= $item['DATA'] ?></p>
+                <p class="dadosMain">Descrição: <?= $item['descricao'] ?></p>
                 <p class="dadosMain">Valor: <?= $item['VALOR'] ?></p>
             </div>
         <?php endforeach; ?>
     </main>
-</div>
+</section>
 
 <?php
 

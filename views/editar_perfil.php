@@ -1,31 +1,31 @@
 <?php
+$tituloPagina = 'Editar Perfil';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
-session_start();
 $usuario = new Usuario($_SESSION['id_usuario']);
 
 ?>
+<section class="nav-right-cont">
+    <main class="conteudoCentro">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/defi/controllers/usuario_editar_controller.php" method="post" enctype="multipart/form-data">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value="<?= $usuario->nome ?>">
+        <form action="/defi/controllers/usuario_editar_controller.php" method="post" enctype="multipart/form-data">
+            <div class="login">
+                <h1 class="txtLog"> Editar perfil</h1>
+                <label for=""> Nome</label>
+                <input class="inputLogin" type="text" name="nome" placeholder="Digite seu nome" value="<?= $usuario->nome ?>">
+                <label for="email"> E-mail</label>
+                <input class="inputLogin" type="email" name="email" placeholder="Digite seu email" value="<?= $usuario->email ?>">
+                <input class="inputFoto" type="file" name="foto" placeholder="teste">
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="<?= $usuario->email ?>">
+                <input type="hidden" name="id" value="<?= $usuario->id_usuario ?>">
 
-        <label for="foto">Foto</label>
-        <input type="file" name="foto" id="foto">
+                <button class="bEntrar" type="submit"> Atualizar</button>
+            </div>
+        </form>
 
-        <input type="hidden" name="id" value="<?= $usuario->id_usuario ?>">
+    </main>
+</section>
 
-        <input type="submit" value="Atualizar">
-    </form>
 </body>
+
 </html>
