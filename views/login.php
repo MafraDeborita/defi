@@ -2,6 +2,10 @@
 $tituloPagina = 'Login';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 
+if(isset($_SESSION['id_usuario'])){
+    header('Location: /defi/views/perfil.php');
+}
+
 ?>
 
 

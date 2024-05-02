@@ -1,23 +1,25 @@
 <?php
+$tituloPagina = 'Adicionar Categoria';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 
+if(!isset($_SESSION['id_usuario'])){
+    header('Location: /defi/views/login.php');
+}
+
+
 ?>
-<div class="form">
+<section class="nav-right-cont">
+
     <form action="/defi/controllers/categoria_adicionar_controller.php" method="post">
-        <div>
-            <img src="" alt="">
+        <div class="login">
+            <label for="nome">Nome da Categoria</label>
+            <input type="text" class="inputLogin" id="nome" name="nome" placeholder="Nome da Categoria">
+
+            <button class="bEntrar" type="submit">Cadastrar</button>
         </div>
-
-        <h1 class="h3">Cadastrar Categoria</h1>
-
-        <div>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Categoria">
-            <!-- <label for="nome">Nome da Categoria</label> -->
-        </div>
-
-        <button class="bEntrar" type="submit">Cadastrar</button>
     </form>
-</div>
+
+</section>
 </body>
 
 </html>

@@ -1,1 +1,0 @@
-aqui ficam as views publicas

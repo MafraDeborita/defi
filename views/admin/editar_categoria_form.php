@@ -1,6 +1,12 @@
 <?php
+$tituloPagina = 'Editar Categoria';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/categoria.php';
+
+if(!isset($_SESSION['id_usuario'])){
+    header('Location: /defi/views/login.php');
+}
+
 
 try {
     $id = $_GET['id'];
@@ -11,24 +17,18 @@ try {
 }
 ?>
 
-<div class="form">
+<section class="nav-right-cont">
     <form action="/defi/controllers/categoria_editar_controller.php" method="post">
-        <div>
-            <img src="" alt="">
+        <div class="login">
+            <input type="text" class="inputLogin" id="nome" name="nome" placeholder="Nome da Categoria" value="<?= $categoria->nome_categoria ?>">
+
+
+            <input type="hidden" name="id" value="<?= $categoria->id_categoria ?>">
+
+            <button class="bEntrar" type="submit">Atualizar</button>
         </div>
-
-        <h1 class="h3">Editar Categoria</h1>
-
-        <div>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Categoria" value="<?= $categoria->nome_categoria ?>">
-            <!-- <label for="nome">Nome da Categoria</label> -->
-        </div>
-
-        <input type="hidden" name="id" value="<?= $categoria->id_categoria ?>">
-
-        <button class="bEntrar" type="submit">Atualizar</button>
     </form>
-</div>
+</section>
 </body>
 
 </html>

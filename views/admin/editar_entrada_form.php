@@ -1,6 +1,13 @@
 <?php
+$tituloPagina = 'Editar Entrada';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/entrada.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/categoria.php';
+
+if(!isset($_SESSION['id_usuario'])){
+    header('Location: /defi/views/login.php');
+}
+
 
 try {
     $id = $_GET['id'];
@@ -12,28 +19,31 @@ try {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
+<section class="nav-right-cont">
     <form action="/defi/controllers/entrada_edit_controller.php" method="post">
-        <input type="number" name="valor" id="valor" value='<?= $novaEntrada->valor_entrada ?>'>
-        <input type="date" name="data" id="data" value='<?= $novaEntrada->data_entrada ?>'>
-        <textarea name="descricao" id="descricao" cols="30" rows="10"><?= $novaEntrada->descricao ?></textarea>
-        <select name="categoria" id="categoria">
-            <?php foreach ($categorias as $categoria) : ?>
-                <option value="<?= $categoria['id_categoria']?>" <?= $novaEntrada->id_categoria == $categoria['id_categoria'] ? 'selected' : '' ?>><?= $categoria['nome_categoria']?></option>
-            <?php endforeach; ?>
-        </select>
-        <input type="hidden" name="id" value="<?= $novaEntrada->id_entrada ?>">
-        <input type="submit" value="Enviar">
+        <div class="login">
+            <label for="valor">Valor</label>
+            <input type="number" class="inputLogin" name="valor" id="valor" value='<?= $novaEntrada->valor_entrada ?>'>
+
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="10"><?= $novaEntrada->descricao ?></textarea>
+
+            <label for="data">Data</label>
+            <input type="date" class="inputLogin" name="data" id="data" value='<?= $novaEntrada->data_entrada ?>'>
+
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="categoria" class="inputLogin">
+                <?php foreach ($categorias as $categoria) : ?>
+                    <option value="<?= $categoria['id_categoria'] ?>" <?= $novaEntrada->id_categoria == $categoria['id_categoria'] ? 'selected' : '' ?>><?= $categoria['nome_categoria'] ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <input type="hidden" name="id" value="<?= $novaEntrada->id_entrada ?>">
+
+            <button type="submit" class="bEntrar">Atualizar</button>
+        </div>
     </form>
+</section>
 </body>
 
 </html>

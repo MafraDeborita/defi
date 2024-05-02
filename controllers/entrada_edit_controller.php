@@ -1,5 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: /defi/views/login.php');
+}
+
 require_once $_SERVER['DOCUMENT_ROOT'] . "/defi/models/entrada.php";
+
 try {
     $valor = $_POST['valor'];
     $data =   $_POST['data'];
@@ -12,11 +18,10 @@ try {
     $entrada->data_entrada = $data;
     $entrada->descricao = $descricao;
     $entrada->id_categoria = $categoria;
-    
+
     $entrada->atualizar();
 
     header('Location: /defi/views/admin/gerenciar_entradas.php');
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-

@@ -1,8 +1,12 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
-
 session_start();
+if(!isset($_SESSION['id_usuario'])){
+    header('Location: /defi/views/login.php');
+}
+
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
 
 try {
     $id = $_POST['id'];

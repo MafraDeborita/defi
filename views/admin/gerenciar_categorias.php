@@ -3,6 +3,11 @@ $tituloPagina = 'Gerenciar Categorias';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/categoria.php';
 
+if(!isset($_SESSION['id_usuario'])){
+    header('Location: /defi/views/login.php');
+}
+
+
 try {
     $lista = Categoria::listar();
 } catch (PDOException $e) {
@@ -14,7 +19,7 @@ try {
 
 <section class="nav-right-cont">
     <div style="overflow-x: auto; width:100%">
-        <table style="border: 1px solid black; width:100%">
+        <table style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>

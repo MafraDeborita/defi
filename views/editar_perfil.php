@@ -2,7 +2,17 @@
 $tituloPagina = 'Editar Perfil';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
-$usuario = new Usuario($_SESSION['id_usuario']);
+
+if(!isset($_SESSION)){
+    header('Location: /defi/views/login.php');
+}
+
+try {
+    $usuario = new Usuario($_SESSION['id_usuario']);
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
+
 
 ?>
 <section class="nav-right-cont">

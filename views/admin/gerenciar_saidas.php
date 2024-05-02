@@ -3,6 +3,11 @@ $tituloPagina = 'Saídas';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/saida.php';
 
+if(!isset($_SESSION['id_usuario'])){
+    header('Location: /defi/views/login.php');
+}
+
+
 try {
     $lista = Saida::listar($_SESSION['id_usuario']);
 
@@ -20,22 +25,29 @@ try {
 ?>
 
 <section class="nav-right-cont">
-    <a href="/defi/views/admin/adicionar_saida_form.php" class="bEntrar">Adicionar</a>
+    <div class="d-flex flex-column">
+        <div>
+            <a href="/defi/views/admin/adicionar_saida_form.php" class="bEntrar">Adicionar</a>
+        </div>
 
-    <div class="card-container">
-        <?php foreach ($lista as $s) : ?>
-            <div class="card">
-                <?= $s['valor_saida'] ?>
-                <h1><?= $s['nome_categoria'] ?></h1>
-                <a class="bEntrar" href="/defi/views/admin/editar_saida_form.php?id=<?= $s['id_saida'] ?>">Editar</a>
-                <a class="bEntrar" href="/defi/controllers/saida_deletar_controller.php?id=<?= $s['id_saida'] ?>">Deletar</a>
+
+        <div class="row justify-content-between align-items-start">
+            <div class="card-container col-md-6">
+                <?php foreach ($lista as $s) : ?>
+                    <div class="card">
+                        R$ <?= $s['valor_saida'] ?>
+                        <h5><?= $s['nome_categoria'] ?></h5>
+                        <a class="bEntrar" href="/defi/views/admin/editar_saida_form.php?id=<?= $s['id_saida'] ?>">Editar</a>
+                        <a class="bEntrar" href="/defi/controllers/saida_deletar_controller.php?id=<?= $s['id_saida'] ?>">Deletar</a>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    </div>
 
-    <div class="col-md-5">
-        <div id="myChart"></div>
-    </div>
+            <div class="col-md-5">
+                <div id="myChart"></div>
+            </div>
+        </div>
+
 </section>
 
 <script>

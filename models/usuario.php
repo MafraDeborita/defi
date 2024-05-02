@@ -106,10 +106,16 @@ class Usuario
     }
 
     public static function gerarExtrato($id_usuario){
-        $sql = "SELECT e.data_entrada as 'DATA', e.descricao, e.valor_entrada as 'VALOR' FROM entradas e
+        $sql = "SELECT e.data_entrada as 'DATA', e.descricao, e.valor_entrada as 'VALOR', c.nome_categoria as 'CATEGORIA' 
+        FROM entradas e
+        JOIN categorias c
+        ON e.id_categoria = c.id_categoria
         WHERE e.id_usuario = :id 
         UNION ALL
-        SELECT s.data_saida as 'DATA', s.descricao, -s.valor_saida FROM saidas s
+        SELECT s.data_saida, s.descricao, -s.valor_saida, c.nome_categoria 
+        FROM saidas s 
+        JOIN categorias c
+        ON s.id_categoria = c.id_categoria
         WHERE s.id_usuario = :id
         ORDER BY `DATA` DESC";
         $conexao = Conexao::criaConexao();
