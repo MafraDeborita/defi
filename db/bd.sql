@@ -12,7 +12,7 @@ CREATE TABLE usuarios(
 
 CREATE TABLE categorias(
     id_categoria INT PRIMARY KEY AUTO_INCREMENT,
-    nome_categoria VARCHAR(255) NOT NULL,
+    nome_categoria VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE saidas(
