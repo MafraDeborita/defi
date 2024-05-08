@@ -91,9 +91,8 @@ class Usuario
         $stmt->bindValue(':email', $email);
         $stmt->execute();
         $usuario = $stmt->fetch();
-
+        session_start();
         if($usuario['id_usuario'] && password_verify($senha, $usuario['senha'])){
-            session_start();
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
@@ -101,6 +100,7 @@ class Usuario
 
             header('Location: /defi/index.php');
         } else {
+            $_SESSION['aviso'] = "Email ou Senha incorretos";
             header('Location: /defi/views/login.php');
         }
     }

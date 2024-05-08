@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
 
 if (!isset($_SESSION['id_usuario'])) {
+    $_SESSION['aviso'] = "Você precisa estar logado";
     header('Location: /defi/views/login.php');
 }
 
@@ -40,6 +41,8 @@ $_SESSION['resultado'] = $resultado;
                 <p class="dadosMain">Valor: <?= $item['VALOR'] ?></p>
             </div>
         <?php endforeach; ?>
+
+        <p>TOTAL: <?= $resultado ?></p>
     </div>
 </section>
 

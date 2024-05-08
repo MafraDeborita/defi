@@ -36,7 +36,7 @@ class Categoria
 
     public static function listar()
     {
-        $sql = 'SELECT * FROM categorias';
+        $sql = 'SELECT * FROM categorias ORDER BY nome_categoria';
         $conexao = Conexao::criaConexao();
         $stmt = $conexao->prepare($sql);
         $stmt->execute();

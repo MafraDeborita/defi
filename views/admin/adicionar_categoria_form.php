@@ -3,6 +3,7 @@ $tituloPagina = 'Adicionar Categoria';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 
 if(!isset($_SESSION['id_usuario'])){
+    $_SESSION['aviso'] = "Você precisa estar logado";
     header('Location: /defi/views/login.php');
 }
 

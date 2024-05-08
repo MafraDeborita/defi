@@ -7,11 +7,7 @@ if (!isset($_SESSION['id_usuario'])) {
 
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/back_relatorio/fpdf.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/configs/utilitarios.php';
 
-
-// Util::vardump_formatado($_SESSION['extrato']);
-// exit();
 
 $pdf = new FPDF();
 $pdf->AddPage();
@@ -26,7 +22,6 @@ $pdf->Line(205, 290, 205, 5);
 
 // fonte e cores
 $pdf->SetFont('Times', '', 16);
-$pdf->SetDrawColor(158, 7, 138);
 $pdf->SetTextColor(158, 7, 138);
 
 // imagem

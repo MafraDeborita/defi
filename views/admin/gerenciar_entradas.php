@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/entrada.php';
 
 if(!isset($_SESSION['id_usuario'])){
+    $_SESSION['aviso'] = "Você precisa estar logado";
     header('Location: /defi/views/login.php');
 }
 

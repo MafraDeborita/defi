@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/saida.php';
 
 if(!isset($_SESSION['id_usuario'])){
+    $_SESSION['aviso'] = "Você precisa estar logado";
     header('Location: /defi/views/login.php');
 }
 
@@ -60,7 +61,7 @@ try {
         var dados = <?= $dados_grafico_json; ?>; //inserindo o JSON gerado com PHP nessa variavel para manipular depois
         var data = google.visualization.arrayToDataTable(dados);
         var options = {
-            title: 'Minhas Entradas por Categoria',
+            title: 'Minhas Saídas por Categoria',
             is3D: true,
             width: 600,
             height: 400

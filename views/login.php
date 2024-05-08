@@ -2,7 +2,7 @@
 $tituloPagina = 'Login';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 
-if(isset($_SESSION['id_usuario'])){
+if (isset($_SESSION['id_usuario'])) {
     header('Location: /defi/views/perfil.php');
 }
 
@@ -10,6 +10,15 @@ if(isset($_SESSION['id_usuario'])){
 
 
 <section class="nav-right-cont">
+    <?php if (isset($_SESSION['aviso'])) : ?>
+        <section>
+            <div class="alert alert-danger text-center" role="alert">
+                <?= $_SESSION['aviso'] ?>
+                <?php unset($_SESSION['aviso']) ?>
+            </div>
+        </section>
+    <?php endif; ?>
+
     <form action="/defi/controllers/login.php" method="post">
         <div class="login">
             <label for="email">E-mail</label>
