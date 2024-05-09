@@ -7,49 +7,65 @@ if (!isset($_SESSION['id_usuario'])) {
 
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/back_relatorio/fpdf.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/back_relatorio/mc_tables.php';
 
-
-$pdf = new FPDF();
-$pdf->AddPage();
+// usando o multicell
+$mc = new PDF_MC_Table();
+$mc->AddPage();
 
 // borda da pagina
-$pdf->SetDrawColor(158, 7, 138);
-$pdf->SetLineWidth(1);
-$pdf->Line(5, 5, 205, 5);
-$pdf->Line(5, 5, 5, 290);
-$pdf->Line(205, 290, 5, 290);
-$pdf->Line(205, 290, 205, 5);
+$mc->SetDrawColor(158, 7, 138);
+$mc->SetLineWidth(1);
+$mc->Line(5, 5, 205, 5);
+$mc->Line(5, 5, 5, 290);
+$mc->Line(205, 290, 5, 290);
+$mc->Line(205, 290, 205, 5);
 
 // fonte e cores
-$pdf->SetFont('Times', '', 16);
-$pdf->SetTextColor(158, 7, 138);
+$mc->SetFont('Times', '', 16);
+$mc->SetTextColor(158, 7, 138);
 
 // imagem
-$pdf->Image($_SERVER['DOCUMENT_ROOT'] . '/defi/imgs/logo.png', ($pdf->GetPageWidth() - 30) / 2, null, 30, 30);
+$mc->Image($_SERVER['DOCUMENT_ROOT'] . '/defi/imgs/logo.png', ($mc->GetPageWidth() - 30) / 2, null, 30, 30);
 
 // titulo
-$pdf->Cell(0, 10, mb_convert_encoding('RELATÓRIO', "Windows-1252", "UTF-8"), 0, 0, 'C');
-$pdf->Ln();
+$mc->Cell(0, 10, mb_convert_encoding('RELATÓRIO', "Windows-1252", "UTF-8"), 0, 0, 'C');
+$mc->Ln();
+
+$mc->SetWidths(array(
+    ($mc->GetPageWidth() - 20) * 0.25, 
+    ($mc->GetPageWidth() - 20) * 0.25, 
+    ($mc->GetPageWidth() - 20) * 0.25, 
+    ($mc->GetPageWidth() - 20) * 0.25
+));
 
 // titulo da tabela
-$pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, mb_convert_encoding('DATA', "Windows-1252", "UTF-8"), 0, 0, 'C');
-$pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, mb_convert_encoding('DESCRIÇÃO', "Windows-1252", "UTF-8"), 0, 0, 'C');
-$pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, mb_convert_encoding('CATEGORIA', "Windows-1252", "UTF-8"), 0, 0, 'C');
-$pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, mb_convert_encoding('VALOR', "Windows-1252", "UTF-8"), 0, 0, 'C');
-$pdf->Ln();
+$mc->Row(array(
+    mb_convert_encoding('DATA', "Windows-1252", "UTF-8"),
+    mb_convert_encoding('DESCRIÇÃO', "Windows-1252", "UTF-8"),
+    mb_convert_encoding('CATEGORIA', "Windows-1252", "UTF-8"),
+    mb_convert_encoding('VALOR', "Windows-1252", "UTF-8")
+));
 
-// linhas da tabela
-foreach ($_SESSION['extrato'] as $dado) {
-    $pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, mb_convert_encoding(date('d/m/Y', strtotime($dado[0])), "Windows-1252", "UTF-8"), 1, 0, 'C');
-    $pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, mb_convert_encoding($dado[1], "Windows-1252", "UTF-8"), 1, 0, 'C');
-    $pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, mb_convert_encoding($dado[3], "Windows-1252", "UTF-8"), 1, 0, 'C');
-    $pdf->Cell(($pdf->GetPageWidth() - 20) / 4, 10, 'R$ ' . mb_convert_encoding($dado[2], "Windows-1252", "UTF-8"), 1, 0, 'C');
-    $pdf->Ln();
+foreach ($_SESSION['extrato'] as $dado){
+    $mc->Row(array(
+        mb_convert_encoding(date('d/m/Y', strtotime($dado[0])), "Windows-1252", "UTF-8"),
+        mb_convert_encoding($dado[1], "Windows-1252", "UTF-8"), 
+        mb_convert_encoding($dado[3], "Windows-1252", "UTF-8"), 
+        'R$ ' . mb_convert_encoding($dado[2], "Windows-1252", "UTF-8"
+    )));
 }
 
-// linha de total
-$pdf->Cell(($pdf->GetPageWidth() - 20) * 0.75, 10, mb_convert_encoding('Total', "Windows-1252", "UTF-8"), 1, 0, 'C');
-$pdf->Cell(($pdf->GetPageWidth() - 20) * 0.25, 10, mb_convert_encoding("R$ " . $_SESSION['resultado'], "Windows-1252", "UTF-8"), 1, 0, 'C');
+// linha de total larguras
+$mc->SetWidths(array(
+    ($mc->GetPageWidth() - 20) * 0.75, 
+    ($mc->GetPageWidth() - 20) * 0.25
+));
 
-
-$pdf->Output('I', 'Relatório.pdf', true);
+// linha de total valores
+$mc->Row(array(
+    mb_convert_encoding('Total', "Windows-1252", "UTF-8"),
+    mb_convert_encoding("R$ " . $_SESSION['resultado'], "Windows-1252", "UTF-8")
+));
+    
+$mc->Output();

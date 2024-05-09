@@ -1,7 +1,10 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/configs/utilitarios.php';
-session_start()
+require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/configs/duracaoSessao.php';
+session_start();
+
+Sessao::duracao();
 
 ?>
 
@@ -12,7 +15,8 @@ session_start()
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pi</title>
+    <title>Defi</title>
+    <link rel="shortcut icon" href="/defi/imgs/logo.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/defi/css/bootstrap.css">
     <link rel="stylesheet" href="/defi/css/style.css" />
