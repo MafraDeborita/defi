@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Fortaleza'); // setando o horario do servidor para o fuso mais proximo para quando exibir a data no relatorio ela estar correta
 
 session_start();
 if (!isset($_SESSION['id_usuario'])) {
@@ -12,6 +13,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/back_relatorio/mc_tables.php';
 // usando o multicell
 $mc = new PDF_MC_Table();
 $mc->AddPage();
+
+// data/hora de emissao
+$mc->SetFont('Times', '', 8);
+$mc->Cell(195, 1, "Gerado em: " . date('d/m/Y H:i:s'), 0, 0, 'R');
+$mc->Ln();
 
 // borda da pagina
 $mc->SetDrawColor(158, 7, 138);

@@ -1,11 +1,8 @@
 <?php
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/configs/utilitarios.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/configs/duracaoSessao.php';
 session_start();
-
 Sessao::duracao();
-
 ?>
 
 
