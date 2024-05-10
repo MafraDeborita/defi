@@ -12,6 +12,8 @@ try {
 
     $saida = new Saida ($id);
     $saida->deletar();
+
+    $_SESSION['aviso'] = "Saída deletada com sucesso";
     header('Location: /defi/views/admin/gerenciar_saidas.php');
 
 } catch (PDOException $e) {

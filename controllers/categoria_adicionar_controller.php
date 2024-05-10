@@ -14,6 +14,7 @@ try {
 
     $categoria->criar();
 
+    $_SESSION['aviso'] = "Categoria '$categoria->nome_categoria' criada com sucesso";
     header('Location: /defi/views/admin/gerenciar_categorias.php');
     exit();
 } catch (PDOException $e) {

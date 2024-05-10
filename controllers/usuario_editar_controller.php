@@ -29,11 +29,11 @@ try {
 
     $usuario->atualizar();
 
-    $_SESSION['nome'] = $nome;
-    $_SESSION['email'] = $email;
-    $_SESSION['foto_usuario'] = $foto;
+    $_SESSION['nome'] = $usuario->nome;
+    $_SESSION['email'] = $usuario->email;
+    $_SESSION['foto_usuario'] = $usuario->foto_usuario;
 
-    header('Location: /defi/views/perfil.php');
+    header('Location: /defi/index.php');
 
 } catch (PDOException $e) {
     echo $e->getMessage();

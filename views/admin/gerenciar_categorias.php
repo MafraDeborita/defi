@@ -19,6 +19,15 @@ try {
 
 
 <section class="nav-right-cont">
+    <?php if (isset($_SESSION['aviso'])) : ?>
+        <section>
+            <div class="alert alert-danger text-center" role="alert">
+                <?= $_SESSION['aviso'] ?>
+                <?php unset($_SESSION['aviso']) ?>
+            </div>
+        </section>
+    <?php endif; ?>
+    
     <div style="overflow-x: auto; width:100%">
         <table style="width:100%">
             <thead>

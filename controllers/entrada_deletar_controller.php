@@ -13,6 +13,8 @@ try {
 
     $entrada = new Entrada ($id);
     $entrada->deletar();
+
+    $_SESSION['aviso'] = "entrada deletada com sucesso";
     header('Location: /defi/views/admin/gerenciar_entradas.php');
 
 } catch (PDOException $e) {

@@ -25,6 +25,7 @@ try {
 
     $entrada->criar();
 
+    $_SESSION['aviso'] = "Nova entrada criada com sucesso";
     header('Location: /defi/views/admin/gerenciar_entradas.php');
     exit();
 

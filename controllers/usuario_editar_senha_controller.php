@@ -18,7 +18,7 @@ try {
 
     $usuario->atualizarSenha();
 
-    header('Location: /defi/views/perfil.php');
+    header('Location: /defi/index.php');
 
 } catch (PDOException $e) {
     echo $e->getMessage();

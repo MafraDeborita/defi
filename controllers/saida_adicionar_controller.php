@@ -23,6 +23,7 @@ try {
 
     $saida->criar();
 
+    $_SESSION['aviso'] = "Nova saída criada com sucesso";
     header('Location: /defi/views/admin/gerenciar_saidas.php');
     exit();
 

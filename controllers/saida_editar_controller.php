@@ -24,6 +24,7 @@ try {
     
     $saida->atualizar();
 
+    $_SESSION['aviso'] = "Saída atualizada com sucesso";
     header('Location: /defi/views/admin/gerenciar_saidas.php');
 } catch (PDOException $e) {
     echo $e->getMessage();

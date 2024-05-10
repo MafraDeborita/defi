@@ -52,7 +52,7 @@ class Entrada{
         FROM entradas e 
         JOIN usuarios u 
         ON e.id_usuario = u.id_usuario
-        JOIN categorias c
+        LEFT JOIN categorias c
         ON c.id_categoria = e.id_categoria 
         WHERE u.id_usuario = :id';
         $conexao = Conexao::criaConexao();

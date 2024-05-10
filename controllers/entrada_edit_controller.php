@@ -21,6 +21,7 @@ try {
 
     $entrada->atualizar();
 
+    $_SESSION['aviso'] = "Entrada atualizada com sucesso";
     header('Location: /defi/views/admin/gerenciar_entradas.php');
 } catch (PDOException $e) {
     echo $e->getMessage();

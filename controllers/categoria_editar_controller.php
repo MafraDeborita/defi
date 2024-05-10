@@ -17,6 +17,7 @@ try {
 
     $categoria->atualizar();
 
+    $_SESSION['aviso'] = "Categoria '$categoria->nome_categoria' atualizada com sucesso";
     header('Location: /defi/views/admin/gerenciar_categorias.php');
     exit();
 } catch (PDOException $e) {

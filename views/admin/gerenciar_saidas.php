@@ -3,7 +3,7 @@ $tituloPagina = 'Saídas';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/saida.php';
 
-if(!isset($_SESSION['id_usuario'])){
+if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['aviso'] = "Você precisa estar logado";
     header('Location: /defi/views/login.php');
 }
@@ -26,6 +26,15 @@ try {
 ?>
 
 <section class="nav-right-cont">
+    <?php if (isset($_SESSION['aviso'])) : ?>
+        <section>
+            <div class="alert alert-danger text-center" role="alert">
+                <?= $_SESSION['aviso'] ?>
+                <?php unset($_SESSION['aviso']) ?>
+            </div>
+        </section>
+    <?php endif; ?>
+    
     <div class="d-flex flex-column">
         <div>
             <a href="/defi/views/admin/adicionar_saida_form.php" class="bEntrar">Adicionar</a>

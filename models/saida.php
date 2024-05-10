@@ -54,7 +54,7 @@ class Saida{
         FROM saidas s 
         JOIN usuarios u 
         ON s.id_usuario = u.id_usuario
-        JOIN categorias c
+        LEFT JOIN categorias c
         ON c.id_categoria = s.id_categoria 
         WHERE u.id_usuario = :id';
         $conexao = Conexao::criaConexao();
