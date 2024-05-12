@@ -69,7 +69,7 @@ try {
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-        var dados = <?= $dados_grafico_json; ?>; //inserindo o JSON gerado com PHP nessa variavel para manipular depois
+        var dados = <?= $dados_grafico_json ?>; //inserindo o JSON gerado com PHP nessa variavel para manipular depois
         var data = google.visualization.arrayToDataTable(dados);
         var options = {
             title: 'Minhas Entradas por Categoria',

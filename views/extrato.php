@@ -10,6 +10,17 @@ if (!isset($_SESSION['id_usuario'])) {
 
 try {
     $listaExtrato = Usuario::gerarExtrato($_SESSION['id_usuario']);
+
+    $dados_grafico = [];
+    $dados_grafico[] = ['Data', 'Saldo'];
+
+    $saldo_total = 0;
+    foreach ($listaExtrato as $registro) {
+        $saldo_total += $registro['VALOR'];
+        $dados_grafico[] = [$registro['DATA'], (float)$saldo_total];
+    }
+
+    $dados_grafico_json = json_encode($dados_grafico);
 } catch (PDOException $th) {
     echo $th->getMessage();
 }
@@ -44,7 +55,37 @@ $_SESSION['resultado'] = $resultado;
 
         <p>TOTAL: <?= $resultado ?></p>
     </div>
+
+    <section>
+        <div id="myChart"></div>
+    </section>
 </section>
+
+<script>
+    google.charts.load('current', {
+        packages: ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var dados = <?= $dados_grafico_json; ?>; //inserindo o JSON gerado com PHP nessa variavel para manipular depois
+        var data = google.visualization.arrayToDataTable(dados);
+        var options = {
+            title: 'Saldo ao longo do tempo',
+            is3D: true,
+            width: 600,
+            height: 400,
+            hAxis: {
+                title: 'Data'
+            },
+            vAxis: {
+                title: 'Saldo'
+            }
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('myChart'));
+        chart.draw(data, options);
+    }
+</script>
 
 <?php
 

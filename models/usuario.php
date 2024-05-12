@@ -84,7 +84,8 @@ class Usuario
         $stmt->execute();
     }
 
-    public static function logar($email, $senha){
+    public static function logar($email, $senha)
+    {
         $sql = "SELECT * FROM usuarios WHERE email = :email";
         $conexao = Conexao::criaConexao();
         $stmt = $conexao->prepare($sql);
@@ -92,7 +93,7 @@ class Usuario
         $stmt->execute();
         $usuario = $stmt->fetch();
         session_start();
-        if($usuario['id_usuario'] && password_verify($senha, $usuario['senha'])){
+        if ($usuario['id_usuario'] && password_verify($senha, $usuario['senha'])) {
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
@@ -105,7 +106,8 @@ class Usuario
         }
     }
 
-    public static function gerarExtrato($id_usuario){
+    public static function gerarExtrato($id_usuario)
+    {
         $sql = "SELECT e.data_entrada as 'DATA', e.descricao, e.valor_entrada as 'VALOR', c.nome_categoria as 'CATEGORIA' 
         FROM entradas e
         JOIN categorias c
@@ -117,13 +119,12 @@ class Usuario
         JOIN categorias c
         ON s.id_categoria = c.id_categoria
         WHERE s.id_usuario = :id
-        ORDER BY `DATA` DESC";
+        ORDER BY `DATA` ASC";
         $conexao = Conexao::criaConexao();
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(':id', $id_usuario);
         $stmt->execute();
         $resultado = $stmt->fetchAll();
         return $resultado;
-
     }
 }
