@@ -21,7 +21,7 @@ try {
     <form action="/defi/controllers/saida_adicionar_controller.php" method="post">
         <div class="login">
             <label for="valor">Valor</label>
-            <input type="number" class="inputLogin" name="valor" id="valor" min="0" required>
+            <input type="number" class="inputLogin" name="valor" id="valor" min="0" step="0.01" required>
 
             <label for="descricao">Descrição</label>
             <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
