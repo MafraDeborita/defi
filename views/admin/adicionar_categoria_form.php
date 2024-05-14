@@ -14,7 +14,7 @@ if(!isset($_SESSION['id_usuario'])){
     <form action="/defi/controllers/categoria_adicionar_controller.php" method="post">
         <div class="login">
             <label for="nome">Nome da Categoria</label>
-            <input type="text" class="inputLogin" id="nome" name="nome" placeholder="Nome da Categoria">
+            <input type="text" class="inputLogin" id="nome" name="nome" placeholder="Nome da Categoria" required>
 
             <button class="bEntrar" type="submit">Cadastrar</button>
         </div>

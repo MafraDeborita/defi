@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_usuario'])) {
 require_once $_SERVER['DOCUMENT_ROOT'] . "/defi/models/entrada.php";
 
 try {
-    $valor = $_POST['valor'];
+    $valor = abs($_POST['valor']);
     $data =   $_POST['data'];
     $descricao =  $_POST['descricao'];
     $categoria =  $_POST['categoria'];

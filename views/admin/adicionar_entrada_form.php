@@ -21,13 +21,13 @@ try {
     <form action="/defi/controllers/entrada_adicionar_controller.php" method="post">
         <div class="login">
             <label for="valor">Valor</label>
-            <input type="number" class="inputLogin" name="valor" id="valor">
+            <input type="number" class="inputLogin" name="valor" id="valor" min="0" required>
 
             <label for="descricao">Descrição</label>
             <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
 
             <label for="data">Data</label>
-            <input type="date" class="inputLogin" name="data" id="data">
+            <input type="date" class="inputLogin" name="data" id="data" required>
 
             <label for="categoria">Categoria</label>
             <select name="categoria" id="categoria" class="inputLogin">

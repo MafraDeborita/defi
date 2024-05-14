@@ -21,7 +21,7 @@ try {
 <section class="nav-right-cont">
     <form action="/defi/controllers/categoria_editar_controller.php" method="post">
         <div class="login">
-            <input type="text" class="inputLogin" id="nome" name="nome" placeholder="Nome da Categoria" value="<?= $categoria->nome_categoria ?>">
+            <input type="text" class="inputLogin" id="nome" name="nome" placeholder="Nome da Categoria" value="<?= $categoria->nome_categoria ?>" required>
 
 
             <input type="hidden" name="id" value="<?= $categoria->id_categoria ?>">

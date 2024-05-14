@@ -9,7 +9,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/saida.php';
 
 
 try {
-    $valor = $_POST['valor'];
+    $valor = abs($_POST['valor']);
     $descricao = $_POST['descricao'];
     $data = $_POST['data'];
     $cat = $_POST['categoria'];

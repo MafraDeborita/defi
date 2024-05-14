@@ -24,13 +24,13 @@ try {
     <form action="/defi/controllers/saida_editar_controller.php" method="post">
         <div class="login">
             <label for="valor">Valor</label>
-            <input type="number" class="inputLogin" name="valor" id="valor" value='<?= $novaSaida->valor_saida ?>'>
+            <input type="number" class="inputLogin" name="valor" id="valor" value='<?= $novaSaida->valor_saida ?>' min="0" required>
 
             <label for="descricao">Descrição</label>
             <textarea name="descricao" id="descricao" cols="30" rows="10"><?= $novaSaida->descricao ?></textarea>
 
             <label for="data">Data</label>
-            <input type="date" class="inputLogin" name="data" id="data" value='<?= $novaSaida->data_saida ?>'>
+            <input type="date" class="inputLogin" name="data" id="data" value='<?= $novaSaida->data_saida ?>' required>
 
             <label for="categoria">Categoria</label>
             <select name="categoria" id="categoria" class="inputLogin">

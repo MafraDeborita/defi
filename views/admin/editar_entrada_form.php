@@ -24,13 +24,13 @@ try {
     <form action="/defi/controllers/entrada_edit_controller.php" method="post">
         <div class="login">
             <label for="valor">Valor</label>
-            <input type="number" class="inputLogin" name="valor" id="valor" value='<?= $novaEntrada->valor_entrada ?>'>
+            <input type="number" class="inputLogin" name="valor" id="valor" value='<?= $novaEntrada->valor_entrada ?>' min="0" required>
 
             <label for="descricao">Descrição</label>
             <textarea name="descricao" id="descricao" cols="30" rows="10"><?= $novaEntrada->descricao ?></textarea>
 
             <label for="data">Data</label>
-            <input type="date" class="inputLogin" name="data" id="data" value='<?= $novaEntrada->data_entrada ?>'>
+            <input type="date" class="inputLogin" name="data" id="data" value='<?= $novaEntrada->data_entrada ?>' required>
 
             <label for="categoria">Categoria</label>
             <select name="categoria" id="categoria" class="inputLogin">

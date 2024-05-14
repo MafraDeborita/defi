@@ -22,9 +22,9 @@ if (isset($_SESSION['id_usuario'])) {
     <form action="/defi/controllers/login.php" method="post">
         <div class="login">
             <label for="email">E-mail</label>
-            <input class="inputLogin" type="text" id="email" name="email" placeholder="Digite seu e-mail">
+            <input class="inputLogin" type="text" id="email" name="email" placeholder="Digite seu e-mail" required>
             <label for="senha">Senha</label>
-            <input class="inputLogin" type="password" id="senha" name="senha" placeholder="Digite sua senha">
+            <input class="inputLogin" type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
 
             <a href="/defi/views/registro.php">Registrar</a>
 
