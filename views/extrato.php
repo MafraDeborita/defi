@@ -56,7 +56,7 @@ $_SESSION['resultado'] = $resultado;
         <p>TOTAL: <?= $resultado ?></p>
     </div>
 
-    <section>
+    <section class="grafico-container">
         <div id="myChart"></div>
     </section>
 </section>

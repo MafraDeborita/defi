@@ -52,7 +52,7 @@ try {
                 <?php endforeach; ?>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-5 grafico-container">
                 <div id="myChart"></div>
             </div>
         </div>

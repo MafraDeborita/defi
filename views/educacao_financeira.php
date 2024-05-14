@@ -33,8 +33,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 
         </div>
 
-        <div id="video">
-            <iframe src="https://www.youtube.com/embed/HzRK6wTSHHU" frameborder="0" width="800px" height="500px"></iframe>
+
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/HzRK6wTSHHU?si=yX4WFt24PeZlQdP-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <h3>Dicas de Leitura</h3>
