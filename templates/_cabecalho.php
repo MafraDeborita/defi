@@ -23,8 +23,6 @@ Sessao::duracao();
     <script src="/smartcash/js/bootstrap.bundle.js" defer></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
 
-
-    <!-- <script src="/smartcash/js/script.js" defer></script> -->
 </head>
 
 <body>
@@ -51,10 +49,6 @@ Sessao::duracao();
                             <span class="material-symbols-outlined">account_balance</span>
                             <span>Extrato</span>
                         </a>
-                        <!-- <a href="/smartcash/views/graficos.php">
-                        <span class="material-symbols-outlined">pie_chart</span>
-                        <span>Grafico</span>
-                    </a> -->
                         <a href="/smartcash/views/editar_perfil.php">
                             <span class="material-symbols-outlined">account_circle</span>
                             <span>Editar Perfil</span>
@@ -80,10 +74,10 @@ Sessao::duracao();
                 <div class="itens">
                     <h1><?= $tituloPagina ?></h1>
                     <div class="buttons-right">
-                        <!-- <input type="search" class="form-control rounded" placeholder="Saldo, Extrato, DRE, etc ..." aria-label="Search" aria-describedby="search-addon" /> -->
                         <?php if (!isset($_SESSION['id_usuario'])) : ?>
                             <a class="login-btn" href="/smartcash/views/login.php" style="color: #8c52ff">Login</a>
                         <?php else : ?>
+                            <span>Olá, <?= $_SESSION['nome'] ?></span>
                             <img src="data:image;base64,<?= base64_encode($_SESSION['foto_usuario']) ?>" alt="" class="foto-perfil">
                             <a class="login-btn" href="/smartcash/controllers/logout.php" style="color: #8c52ff">Sair</a>
                         <?php endif; ?>
