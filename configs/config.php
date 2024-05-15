@@ -1,7 +1,7 @@
 <?php
 
-smartcashne('SGBD', 'mysql');
-smartcashne('LOCALDOBANCO', 'localhost');
-smartcashne('NOMEDOBANCO', 'smartcash');
-smartcashne('USUARIO', 'root');
-smartcashne('SENHA', '');
+define('SGBD', 'mysql');
+define('LOCALDOBANCO', 'localhost');
+define('NOMEDOBANCO', 'defi');
+define('USUARIO', 'root');
+define('SENHA', '');

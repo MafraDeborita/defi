@@ -4,9 +4,9 @@
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'unsmartcashned' ? module.exports = factory() :
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof smartcashne === 'function' && smartcashne.amd ? smartcashne(factory) :
-  (global = typeof globalThis !== 'unsmartcashned' ? globalThis : global || self, global.bootstrap = factory());
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.bootstrap = factory());
 })(this, (function () { 'use strict';
 
   /**
@@ -83,7 +83,7 @@
 
   // Shout-out Angus Croll (https://goo.gl/pxwQGp)
   const toType = object => {
-    if (object === null || object === unsmartcashned) {
+    if (object === null || object === undefined) {
       return `${object}`;
     }
     return Object.prototype.toString.call(object).match(/\s([a-z]+)/i)[1].toLowerCase();
@@ -117,7 +117,7 @@
       return 0;
     }
 
-    // If multiple durations are smartcashned, take the first
+    // If multiple durations are defined, take the first
     transitionDuration = transitionDuration.split(',')[0];
     transitionDelay = transitionDelay.split(',')[0];
     return (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
@@ -129,10 +129,10 @@
     if (!object || typeof object !== 'object') {
       return false;
     }
-    if (typeof object.jquery !== 'unsmartcashned') {
+    if (typeof object.jquery !== 'undefined') {
       object = object[0];
     }
-    return typeof object.nodeType !== 'unsmartcashned';
+    return typeof object.nodeType !== 'undefined';
   };
   const getElement = object => {
     // it's a jQuery object or a node element
@@ -172,7 +172,7 @@
     if (element.classList.contains('disabled')) {
       return true;
     }
-    if (typeof element.disabled !== 'unsmartcashned') {
+    if (typeof element.disabled !== 'undefined') {
       return element.disabled;
     }
     return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
@@ -455,7 +455,7 @@
       const events = getElementEvents(element);
       const storeElementEvent = events[typeEvent] || {};
       const isNamespace = originalTypeEvent.startsWith('.');
-      if (typeof callable !== 'unsmartcashned') {
+      if (typeof callable !== 'undefined') {
         // Simplest case: handler is passed, remove that listener ONLY.
         if (!Object.keys(storeElementEvent).length) {
           return;
@@ -873,7 +873,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config](this);
@@ -1403,7 +1403,7 @@
           return;
         }
         if (typeof config === 'string') {
-          if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
+          if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
             throw new TypeError(`No method named "${config}"`);
           }
           data[config]();
@@ -1653,7 +1653,7 @@
       return this.each(function () {
         const data = Collapse.getOrCreateInstance(this, _config);
         if (typeof config === 'string') {
-          if (typeof data[config] === 'unsmartcashned') {
+          if (typeof data[config] === 'undefined') {
             throw new TypeError(`No method named "${config}"`);
           }
           data[config]();
@@ -1745,7 +1745,7 @@
 
   function isShadowRoot(node) {
     // IE 11 has no ShadowRoot
-    if (typeof ShadowRoot === 'unsmartcashned') {
+    if (typeof ShadowRoot === 'undefined') {
       return false;
     }
 
@@ -3257,7 +3257,7 @@
       if (!pending) {
         pending = new Promise(function (resolve) {
           Promise.resolve().then(function () {
-            pending = unsmartcashned;
+            pending = undefined;
             resolve(fn());
           });
         });
@@ -3700,7 +3700,7 @@
       return config;
     }
     _createPopper() {
-      if (typeof Popper === 'unsmartcashned') {
+      if (typeof Popper === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper (https://popper.js.org)');
       }
       let referenceElement = this._element;
@@ -3804,7 +3804,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'unsmartcashned') {
+        if (typeof data[config] === 'undefined') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -4471,7 +4471,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'unsmartcashned') {
+        if (typeof data[config] === 'undefined') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config](relatedTarget);
@@ -4692,7 +4692,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config](this);
@@ -5065,7 +5065,7 @@
 
   class Tooltip extends BaseComponent {
     constructor(element, config) {
-      if (typeof Popper === 'unsmartcashned') {
+      if (typeof Popper === 'undefined') {
         throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)');
       }
       super(element, config);
@@ -5477,7 +5477,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'unsmartcashned') {
+        if (typeof data[config] === 'undefined') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -5558,7 +5558,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'unsmartcashned') {
+        if (typeof data[config] === 'undefined') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -5808,7 +5808,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -6066,7 +6066,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -6265,7 +6265,7 @@
       return this.each(function () {
         const data = Toast.getOrCreateInstance(this, config);
         if (typeof config === 'string') {
-          if (typeof data[config] === 'unsmartcashned') {
+          if (typeof data[config] === 'undefined') {
             throw new TypeError(`No method named "${config}"`);
           }
           data[config](this);

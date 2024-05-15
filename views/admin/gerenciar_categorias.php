@@ -32,7 +32,6 @@ try {
         <table style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th colspan="2"><a href="/smartcash/views/admin/adicionar_categoria_form.php">Adicionar</a></th>
                 </tr>
@@ -40,7 +39,6 @@ try {
             <tbody>
                 <?php foreach ($lista as $c) : ?>
                     <tr>
-                        <td><?= $c['id_categoria'] ?></td>
                         <td><?= $c['nome_categoria'] ?></td>
                         <td><a href="/smartcash/views/admin/editar_categoria_form.php?id=<?= $c['id_categoria'] ?>">Editar</a></td>
                         <td><a href="/smartcash/controllers/categoria_deletar_controller.php?id=<?= $c['id_categoria'] ?>">Deletar</a></td>

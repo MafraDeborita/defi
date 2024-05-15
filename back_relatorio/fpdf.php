@@ -102,7 +102,7 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	$this->ws = 0;
 	$this->iconv = function_exists('iconv');
 	// Font path
-	if(smartcashned('FPDF_FONTPATH'))
+	if(defined('FPDF_FONTPATH'))
 		$this->fontpath = FPDF_FONTPATH;
 	else
 		$this->fontpath = dirname(__FILE__).'/font/';
@@ -510,7 +510,7 @@ function SetFont($family, $style='', $size=0)
 				$this->AddFont($family,$style);
 		}
 		else
-			$this->Error('Unsmartcashned font: '.$family.' '.$style);
+			$this->Error('Undefined font: '.$family.' '.$style);
 	}
 	// Select it
 	$this->FontFamily = $family;
@@ -1141,7 +1141,7 @@ protected function _loadfont($path)
 		$enc = strtolower($enc);
 	if(!isset($subsetted))
 		$subsetted = false;
-	return get_smartcashned_vars();
+	return get_defined_vars();
 }
 
 protected function _isascii($s)
