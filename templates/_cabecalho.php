@@ -39,13 +39,13 @@ Sessao::duracao();
                 </div>
                 <div class="left-buttons">
                     <?php if (isset($_SESSION['id_usuario'])) : ?>
-                        <a href="/smartcash/views/admin/gerenciar_saidas.php">
-                            <span class="material-symbols-outlined">mintmark</span>
-                            <span>Gerenciar Saidas</span>
-                        </a>
                         <a href="/smartcash/views/admin/gerenciar_entradas.php">
                             <span class="material-symbols-outlined">price_check</span>
                             <span>Gerenciar Entradas</span>
+                        </a>
+                        <a href="/smartcash/views/admin/gerenciar_saidas.php">
+                            <span class="material-symbols-outlined">mintmark</span>
+                            <span>Gerenciar Saidas</span>
                         </a>
                         <a href="/smartcash/views/extrato.php">
                             <span class="material-symbols-outlined">account_balance</span>
