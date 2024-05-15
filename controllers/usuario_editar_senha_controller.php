@@ -2,10 +2,10 @@
 
 session_start();
 if(!isset($_SESSION['id_usuario'])){
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/usuario.php';
 
 
 try {
@@ -18,7 +18,7 @@ try {
 
     $usuario->atualizarSenha();
 
-    header('Location: /defi/index.php');
+    header('Location: /smartcash/index.php');
 
 } catch (PDOException $e) {
     echo $e->getMessage();

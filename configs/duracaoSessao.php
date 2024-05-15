@@ -5,7 +5,7 @@ class Sessao
 
     public static function duracao()
     {
-        // Defina o tempo limite de inatividade em segundos (15 minutos = 900 segundos)
+        // smartcashna o tempo limite de inatividade em segundos (15 minutos = 900 segundos)
         $tempo_limite = 900;
 
         // Verifique se o usuário está logado e se a última atividade está registrada
@@ -17,7 +17,7 @@ class Sessao
 
             // Se o tempo de inatividade exceder o limite, deslogue o usuário
             if ($tempo_inativo > $tempo_limite) {
-                header('Location: /defi/controllers/logout.php');
+                header('Location: /smartcash/controllers/logout.php');
             }
         }
 

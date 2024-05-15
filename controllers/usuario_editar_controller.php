@@ -2,11 +2,11 @@
 
 session_start();
 if(!isset($_SESSION['id_usuario'])){
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/usuario.php';
 
 try {
     $id = $_POST['id'];
@@ -33,7 +33,7 @@ try {
     $_SESSION['email'] = $usuario->email;
     $_SESSION['foto_usuario'] = $usuario->foto_usuario;
 
-    header('Location: /defi/index.php');
+    header('Location: /smartcash/index.php');
 
 } catch (PDOException $e) {
     echo $e->getMessage();

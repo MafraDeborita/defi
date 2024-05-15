@@ -502,7 +502,7 @@ select {
 }
 
 .financas {
-  background-image: url(/defi/imgs/financas.jpg);
+  background-image: url(/smartcash/imgs/financas.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

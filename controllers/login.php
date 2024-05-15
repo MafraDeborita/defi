@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/usuario.php';
 
 try {
     $email = $_POST['email'];

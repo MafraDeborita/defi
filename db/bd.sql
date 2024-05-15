@@ -1,6 +1,6 @@
-CREATE DATABASE defi;
+CREATE DATABASE smartcash;
 
-USE defi;
+USE smartcash;
 
 CREATE TABLE usuarios(
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,

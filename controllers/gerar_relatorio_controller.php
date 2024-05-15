@@ -3,12 +3,12 @@ date_default_timezone_set('America/Fortaleza'); // setando o horario do servidor
 
 session_start();
 if (!isset($_SESSION['id_usuario'])) {
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/back_relatorio/fpdf.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/back_relatorio/mc_tables.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/back_relatorio/fpdf.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/back_relatorio/mc_tables.php';
 
 // usando o multicell
 $mc = new PDF_MC_Table();
@@ -32,7 +32,7 @@ $mc->SetFont('Times', '', 16);
 $mc->SetTextColor(158, 7, 138);
 
 // imagem
-$mc->Image($_SERVER['DOCUMENT_ROOT'] . '/defi/imgs/logo.png', ($mc->GetPageWidth() - 30) / 2, null, 30, 30);
+$mc->Image($_SERVER['DOCUMENT_ROOT'] . '/smartcash/imgs/logo.png', ($mc->GetPageWidth() - 30) / 2, null, 30, 30);
 
 // titulo
 $mc->Cell(0, 10, mb_convert_encoding('RELATÓRIO', "Windows-1252", "UTF-8"), 0, 0, 'C');

@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/configs/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/configs/config.php';
 
 class Conexao
 {

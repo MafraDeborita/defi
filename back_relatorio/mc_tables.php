@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/back_relatorio/fpdf.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/back_relatorio/fpdf.php';
 
 class PDF_MC_Table extends FPDF
 {

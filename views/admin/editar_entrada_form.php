@@ -1,12 +1,12 @@
 <?php
 $tituloPagina = 'Editar Entrada';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/entrada.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/categoria.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/entrada.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/categoria.php';
 
 if(!isset($_SESSION['id_usuario'])){
     $_SESSION['aviso'] = "Você precisa estar logado";
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
 
@@ -21,7 +21,7 @@ try {
 ?>
 
 <section class="nav-right-cont">
-    <form action="/defi/controllers/entrada_edit_controller.php" method="post">
+    <form action="/smartcash/controllers/entrada_edit_controller.php" method="post">
         <div class="login">
             <label for="valor">Valor</label>
             <input type="number" class="inputLogin" name="valor" id="valor" value='<?= $novaEntrada->valor_entrada ?>' min="0" step="0.01" required>

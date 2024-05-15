@@ -102,7 +102,7 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	$this->ws = 0;
 	$this->iconv = function_exists('iconv');
 	// Font path
-	if(defined('FPDF_FONTPATH'))
+	if(smartcashned('FPDF_FONTPATH'))
 		$this->fontpath = FPDF_FONTPATH;
 	else
 		$this->fontpath = dirname(__FILE__).'/font/';
@@ -257,7 +257,7 @@ function SetCreator($creator, $isUTF8=false)
 
 function AliasNbPages($alias='{nb}')
 {
-	// Define an alias for total number of pages
+	// smartcashne an alias for total number of pages
 	$this->AliasNbPages = $alias;
 }
 
@@ -453,7 +453,7 @@ function AddFont($family, $style='', $file='', $dir='')
 	if(isset($this->fonts[$fontkey]))
 		return;
 	if(strpos($file,'/')!==false || strpos($file,"\\")!==false)
-		$this->Error('Incorrect font definition file name: '.$file);
+		$this->Error('Incorrect font smartcashnition file name: '.$file);
 	if($dir=='')
 		$dir = $this->fontpath;
 	if(substr($dir,-1)!='/' && substr($dir,-1)!='\\')
@@ -510,7 +510,7 @@ function SetFont($family, $style='', $size=0)
 				$this->AddFont($family,$style);
 		}
 		else
-			$this->Error('Undefined font: '.$family.' '.$style);
+			$this->Error('Unsmartcashned font: '.$family.' '.$style);
 	}
 	// Select it
 	$this->FontFamily = $family;
@@ -1133,15 +1133,15 @@ protected function _endpage()
 
 protected function _loadfont($path)
 {
-	// Load a font definition file
+	// Load a font smartcashnition file
 	include($path);
 	if(!isset($name))
-		$this->Error('Could not include font definition file: '.$path);
+		$this->Error('Could not include font smartcashnition file: '.$path);
 	if(isset($enc))
 		$enc = strtolower($enc);
 	if(!isset($subsetted))
 		$subsetted = false;
-	return get_defined_vars();
+	return get_smartcashned_vars();
 }
 
 protected function _isascii($s)
@@ -1763,7 +1763,7 @@ protected function _tounicodecmap($uv)
 		$s .= "endbfchar\n";
 	}
 	$s .= "endcmap\n";
-	$s .= "CMapName currentdict /CMap defineresource pop\n";
+	$s .= "CMapName currentdict /CMap smartcashneresource pop\n";
 	$s .= "end\n";
 	$s .= "end";
 	return $s;

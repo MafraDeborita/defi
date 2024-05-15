@@ -1,11 +1,11 @@
 <?php
 $tituloPagina = 'Editar Categoria';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/categoria.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/categoria.php';
 
 if(!isset($_SESSION['id_usuario'])){
     $_SESSION['aviso'] = "Você precisa estar logado";
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
 
@@ -19,7 +19,7 @@ try {
 ?>
 
 <section class="nav-right-cont">
-    <form action="/defi/controllers/categoria_editar_controller.php" method="post">
+    <form action="/smartcash/controllers/categoria_editar_controller.php" method="post">
         <div class="login">
             <input type="text" class="inputLogin" id="nome" name="nome" placeholder="Nome da Categoria" value="<?= $categoria->nome_categoria ?>" required>
 

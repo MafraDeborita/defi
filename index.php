@@ -1,6 +1,6 @@
 <?php
 $tituloPagina = 'Home';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
 
 ?>
 
@@ -16,7 +16,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
                         <button type="button" class="btn btn-outline-primary">Saiba Mais</button>
                     </div> -->
                 </div>
-                <img src="/defi/imgs/screen.webp" alt="" width="100%">
+                <img src="/smartcash/imgs/screen.webp" alt="" width="100%">
             </div>
         </div>
         <!-- <div class="itens-buttons">
@@ -50,7 +50,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
             <div class="card-painel-itens">
                 <div class="card-alinhar">
                     <div class="card-painel">
-                        <img src="/defi/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
+                        <img src="/smartcash/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
                         <div class="painel-link-text">
                             <h1>Contas Pagar</h1>
                             <p class="p">Obrigações</p>
@@ -62,7 +62,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
                     </div>
 
                     <div class="card-painel">
-                        <img src="/defi/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
+                        <img src="/smartcash/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
                         <div class="painel-link-text">
                             <h1>Contas Pagar</h1>
                             <p class="p">Obrigações</p>
@@ -75,7 +75,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
                 </div>
                 <div class="card-alinhar">
                     <div class="card-painel">
-                        <img src="/defi/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
+                        <img src="/smartcash/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
                         <div class="painel-link-text">
                             <h1>Contas Pagar</h1>
                             <p class="p">Obrigações</p>
@@ -87,7 +87,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
                     </div>
 
                     <div class="card-painel">
-                        <img src="/defi/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
+                        <img src="/smartcash/imgs/Img_centro_contas_a_pagar.png" width="100px" alt="" />
                         <div class="painel-link-text">
                             <h1>Contas Pagar</h1>
                             <p class="p">Obrigações</p>
@@ -106,6 +106,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_rodape.php';
 
 ?>

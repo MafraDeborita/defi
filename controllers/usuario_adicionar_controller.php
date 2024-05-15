@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/usuario.php';
 
 try {
     $nome = $_POST['nome'];
@@ -20,13 +20,13 @@ try {
     if($foto){
         $usuario->foto_usuario = $foto;
     } else {
-        $usuario->foto_usuario = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/defi/imgs/dummy_usuario.png');
+        $usuario->foto_usuario = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/smartcash/imgs/dummy_usuario.png');
     }
     
 
     $usuario->criar();
 
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 
 } catch (PDOException $e) {
     echo $e->getMessage();

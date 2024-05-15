@@ -1,11 +1,11 @@
 <?php
 $tituloPagina = 'Extrato';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/usuario.php';
 
 if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['aviso'] = "Você precisa estar logado";
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
 try {
@@ -41,7 +41,7 @@ $_SESSION['resultado'] = $resultado;
     <div class="conteudoCentro">
 
         <div class="botao-relatorio-container">
-            <button class="bEntrar"><a href="/defi/controllers/gerar_relatorio_controller.php" target="_blank">Gerar Relatório</a></button>
+            <button class="bEntrar"><a href="/smartcash/controllers/gerar_relatorio_controller.php" target="_blank">Gerar Relatório</a></button>
         </div>
 
 
@@ -89,6 +89,6 @@ $_SESSION['resultado'] = $resultado;
 
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_rodape.php';
 
 ?>

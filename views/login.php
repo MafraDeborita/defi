@@ -1,9 +1,9 @@
 <?php
 $tituloPagina = 'Login';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
 
 if (isset($_SESSION['id_usuario'])) {
-    header('Location: /defi/views/perfil.php');
+    header('Location: /smartcash/views/perfil.php');
 }
 
 ?>
@@ -19,14 +19,14 @@ if (isset($_SESSION['id_usuario'])) {
         </section>
     <?php endif; ?>
 
-    <form action="/defi/controllers/login.php" method="post">
+    <form action="/smartcash/controllers/login.php" method="post">
         <div class="login">
             <label for="email">E-mail</label>
             <input class="inputLogin" type="text" id="email" name="email" placeholder="Digite seu e-mail" required>
             <label for="senha">Senha</label>
             <input class="inputLogin" type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
 
-            <a href="/defi/views/registro.php">Registrar</a>
+            <a href="/smartcash/views/registro.php">Registrar</a>
 
             <button class="bEntrar" type="submit">Entrar</button>
         </div>
@@ -36,6 +36,6 @@ if (isset($_SESSION['id_usuario'])) {
 
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_rodape.php';
 
 ?>

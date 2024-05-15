@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/db/conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/db/conexao.php';
 
 class Entrada{
     public $id_entrada;

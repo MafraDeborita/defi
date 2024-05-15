@@ -1,11 +1,11 @@
 <?php
 $tituloPagina = 'Editar Perfil';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/usuario.php';
 
 if(!isset($_SESSION)){
     $_SESSION['aviso'] = "Você precisa estar logado";
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
 try {
@@ -19,7 +19,7 @@ try {
 <section class="nav-right-cont">
     <main class="conteudoCentro">
 
-        <form action="/defi/controllers/usuario_editar_controller.php" method="post" enctype="multipart/form-data">
+        <form action="/smartcash/controllers/usuario_editar_controller.php" method="post" enctype="multipart/form-data">
             <div class="login">
                 <h1 class="txtLog"> Editar perfil</h1>
                 <label for=""> Nome</label>

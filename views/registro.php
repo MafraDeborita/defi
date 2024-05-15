@@ -1,16 +1,16 @@
 <?php
 $tituloPagina = 'Cadastro';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
 
 if(isset($_SESSION['id_usuario'])){
-    header('Location: /defi/views/perfil.php');
+    header('Location: /smartcash/views/perfil.php');
 }
 
 ?>
 
 
 <section class="nav-right-cont">
-    <form action="/defi/controllers/usuario_adicionar_controller.php" method="post" enctype="multipart/form-data">
+    <form action="/smartcash/controllers/usuario_adicionar_controller.php" method="post" enctype="multipart/form-data">
         <div class="input-group">
             <div class="input-box">
                 <label for="nome">Nome</label>
@@ -43,5 +43,5 @@ if(isset($_SESSION['id_usuario'])){
 
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_rodape.php';
 ?>

@@ -4,9 +4,9 @@
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.bootstrap = factory());
+  typeof exports === 'object' && typeof module !== 'unsmartcashned' ? module.exports = factory() :
+  typeof smartcashne === 'function' && smartcashne.amd ? smartcashne(factory) :
+  (global = typeof globalThis !== 'unsmartcashned' ? globalThis : global || self, global.bootstrap = factory());
 })(this, (function () { 'use strict';
 
   /**
@@ -83,7 +83,7 @@
 
   // Shout-out Angus Croll (https://goo.gl/pxwQGp)
   const toType = object => {
-    if (object === null || object === undefined) {
+    if (object === null || object === unsmartcashned) {
       return `${object}`;
     }
     return Object.prototype.toString.call(object).match(/\s([a-z]+)/i)[1].toLowerCase();
@@ -117,7 +117,7 @@
       return 0;
     }
 
-    // If multiple durations are defined, take the first
+    // If multiple durations are smartcashned, take the first
     transitionDuration = transitionDuration.split(',')[0];
     transitionDelay = transitionDelay.split(',')[0];
     return (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
@@ -129,10 +129,10 @@
     if (!object || typeof object !== 'object') {
       return false;
     }
-    if (typeof object.jquery !== 'undefined') {
+    if (typeof object.jquery !== 'unsmartcashned') {
       object = object[0];
     }
-    return typeof object.nodeType !== 'undefined';
+    return typeof object.nodeType !== 'unsmartcashned';
   };
   const getElement = object => {
     // it's a jQuery object or a node element
@@ -172,7 +172,7 @@
     if (element.classList.contains('disabled')) {
       return true;
     }
-    if (typeof element.disabled !== 'undefined') {
+    if (typeof element.disabled !== 'unsmartcashned') {
       return element.disabled;
     }
     return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
@@ -233,7 +233,7 @@
     }
   };
   const isRTL = () => document.documentElement.dir === 'rtl';
-  const defineJQueryPlugin = plugin => {
+  const smartcashneJQueryPlugin = plugin => {
     onDOMContentLoaded(() => {
       const $ = getjQuery();
       /* istanbul ignore if */
@@ -455,7 +455,7 @@
       const events = getElementEvents(element);
       const storeElementEvent = events[typeEvent] || {};
       const isNamespace = originalTypeEvent.startsWith('.');
-      if (typeof callable !== 'undefined') {
+      if (typeof callable !== 'unsmartcashned') {
         // Simplest case: handler is passed, remove that listener ONLY.
         if (!Object.keys(storeElementEvent).length) {
           return;
@@ -514,7 +514,7 @@
       try {
         obj[key] = value;
       } catch (_unused) {
-        Object.defineProperty(obj, key, {
+        Object.smartcashneProperty(obj, key, {
           configurable: true,
           get() {
             return value;
@@ -591,7 +591,7 @@
 
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Config {
@@ -650,7 +650,7 @@
   const VERSION = '5.3.3';
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class BaseComponent extends Config {
@@ -839,7 +839,7 @@
   const CLASS_NAME_SHOW$8 = 'show';
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Alert extends BaseComponent {
@@ -873,7 +873,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config](this);
@@ -891,7 +891,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Alert);
+  smartcashneJQueryPlugin(Alert);
 
   /**
    * --------------------------------------------------------------------------
@@ -914,7 +914,7 @@
   const EVENT_CLICK_DATA_API$6 = `click${EVENT_KEY$a}${DATA_API_KEY$6}`;
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Button extends BaseComponent {
@@ -955,7 +955,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Button);
+  smartcashneJQueryPlugin(Button);
 
   /**
    * --------------------------------------------------------------------------
@@ -992,7 +992,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Swipe extends Config {
@@ -1146,7 +1146,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Carousel extends BaseComponent {
@@ -1403,7 +1403,7 @@
           return;
         }
         if (typeof config === 'string') {
-          if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
+          if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
             throw new TypeError(`No method named "${config}"`);
           }
           data[config]();
@@ -1448,7 +1448,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Carousel);
+  smartcashneJQueryPlugin(Carousel);
 
   /**
    * --------------------------------------------------------------------------
@@ -1491,7 +1491,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Collapse extends BaseComponent {
@@ -1653,7 +1653,7 @@
       return this.each(function () {
         const data = Collapse.getOrCreateInstance(this, _config);
         if (typeof config === 'string') {
-          if (typeof data[config] === 'undefined') {
+          if (typeof data[config] === 'unsmartcashned') {
             throw new TypeError(`No method named "${config}"`);
           }
           data[config]();
@@ -1682,7 +1682,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Collapse);
+  smartcashneJQueryPlugin(Collapse);
 
   var top = 'top';
   var bottom = 'bottom';
@@ -1745,7 +1745,7 @@
 
   function isShadowRoot(node) {
     // IE 11 has no ShadowRoot
-    if (typeof ShadowRoot === 'undefined') {
+    if (typeof ShadowRoot === 'unsmartcashned') {
       return false;
     }
 
@@ -3257,7 +3257,7 @@
       if (!pending) {
         pending = new Promise(function (resolve) {
           Promise.resolve().then(function () {
-            pending = undefined;
+            pending = unsmartcashned;
             resolve(fn());
           });
         });
@@ -3481,7 +3481,7 @@
     defaultModifiers: defaultModifiers
   }); // eslint-disable-next-line import/no-unused-modules
 
-  const Popper = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  const Popper = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.smartcashneProperty({
     __proto__: null,
     afterMain,
     afterRead,
@@ -3590,7 +3590,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Dropdown extends BaseComponent {
@@ -3700,7 +3700,7 @@
       return config;
     }
     _createPopper() {
-      if (typeof Popper === 'undefined') {
+      if (typeof Popper === 'unsmartcashned') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper (https://popper.js.org)');
       }
       let referenceElement = this._element;
@@ -3804,7 +3804,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'undefined') {
+        if (typeof data[config] === 'unsmartcashned') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -3889,7 +3889,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Dropdown);
+  smartcashneJQueryPlugin(Dropdown);
 
   /**
    * --------------------------------------------------------------------------
@@ -3924,7 +3924,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Backdrop extends Config {
@@ -4045,7 +4045,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class FocusTrap extends Config {
@@ -4131,7 +4131,7 @@
   const PROPERTY_MARGIN = 'margin-right';
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class ScrollBarHelper {
@@ -4258,7 +4258,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Modal extends BaseComponent {
@@ -4471,7 +4471,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'undefined') {
+        if (typeof data[config] === 'unsmartcashned') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config](relatedTarget);
@@ -4514,7 +4514,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Modal);
+  smartcashneJQueryPlugin(Modal);
 
   /**
    * --------------------------------------------------------------------------
@@ -4560,7 +4560,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Offcanvas extends BaseComponent {
@@ -4692,7 +4692,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config](this);
@@ -4745,7 +4745,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Offcanvas);
+  smartcashneJQueryPlugin(Offcanvas);
 
   /**
    * --------------------------------------------------------------------------
@@ -4881,7 +4881,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class TemplateFactory extends Config {
@@ -5060,12 +5060,12 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Tooltip extends BaseComponent {
     constructor(element, config) {
-      if (typeof Popper === 'undefined') {
+      if (typeof Popper === 'unsmartcashned') {
         throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)');
       }
       super(element, config);
@@ -5477,7 +5477,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'undefined') {
+        if (typeof data[config] === 'unsmartcashned') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -5489,7 +5489,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Tooltip);
+  smartcashneJQueryPlugin(Tooltip);
 
   /**
    * --------------------------------------------------------------------------
@@ -5520,7 +5520,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Popover extends Tooltip {
@@ -5558,7 +5558,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (typeof data[config] === 'undefined') {
+        if (typeof data[config] === 'unsmartcashned') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -5570,7 +5570,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Popover);
+  smartcashneJQueryPlugin(Popover);
 
   /**
    * --------------------------------------------------------------------------
@@ -5620,7 +5620,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class ScrollSpy extends BaseComponent {
@@ -5808,7 +5808,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -5830,7 +5830,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(ScrollSpy);
+  smartcashneJQueryPlugin(ScrollSpy);
 
   /**
    * --------------------------------------------------------------------------
@@ -5875,7 +5875,7 @@
   const SELECTOR_DATA_TOGGLE_ACTIVE = `.${CLASS_NAME_ACTIVE}[data-bs-toggle="tab"], .${CLASS_NAME_ACTIVE}[data-bs-toggle="pill"], .${CLASS_NAME_ACTIVE}[data-bs-toggle="list"]`;
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Tab extends BaseComponent {
@@ -6066,7 +6066,7 @@
         if (typeof config !== 'string') {
           return;
         }
-        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
+        if (data[config] === unsmartcashned || config.startsWith('_') || config === 'constructor') {
           throw new TypeError(`No method named "${config}"`);
         }
         data[config]();
@@ -6100,7 +6100,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Tab);
+  smartcashneJQueryPlugin(Tab);
 
   /**
    * --------------------------------------------------------------------------
@@ -6141,7 +6141,7 @@
   };
 
   /**
-   * Class definition
+   * Class smartcashnition
    */
 
   class Toast extends BaseComponent {
@@ -6265,7 +6265,7 @@
       return this.each(function () {
         const data = Toast.getOrCreateInstance(this, config);
         if (typeof config === 'string') {
-          if (typeof data[config] === 'undefined') {
+          if (typeof data[config] === 'unsmartcashned') {
             throw new TypeError(`No method named "${config}"`);
           }
           data[config](this);
@@ -6284,7 +6284,7 @@
    * jQuery
    */
 
-  defineJQueryPlugin(Toast);
+  smartcashneJQueryPlugin(Toast);
 
   /**
    * --------------------------------------------------------------------------

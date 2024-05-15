@@ -1,6 +1,6 @@
 <?php
 $tituloPagina = 'Educação Financeira';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
 
 ?>
 
@@ -90,6 +90,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
 </section>
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_rodape.php';
 
 ?>

@@ -1,11 +1,11 @@
 <?php
 $tituloPagina = 'Saídas';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/templates/_cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/saida.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/templates/_cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/saida.php';
 
 if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['aviso'] = "Você precisa estar logado";
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
 
@@ -37,7 +37,7 @@ try {
     
     <div class="d-flex flex-column">
         <div>
-            <a href="/defi/views/admin/adicionar_saida_form.php" class="bEntrar">Adicionar</a>
+            <a href="/smartcash/views/admin/adicionar_saida_form.php" class="bEntrar">Adicionar</a>
         </div>
 
 
@@ -47,8 +47,8 @@ try {
                     <div class="card">
                         R$ <?= $s['valor_saida'] ?>
                         <h5><?= $s['nome_categoria'] ?></h5>
-                        <a class="bEntrar" href="/defi/views/admin/editar_saida_form.php?id=<?= $s['id_saida'] ?>">Editar</a>
-                        <a class="bEntrar" href="/defi/controllers/saida_deletar_controller.php?id=<?= $s['id_saida'] ?>">Deletar</a>
+                        <a class="bEntrar" href="/smartcash/views/admin/editar_saida_form.php?id=<?= $s['id_saida'] ?>">Editar</a>
+                        <a class="bEntrar" href="/smartcash/controllers/saida_deletar_controller.php?id=<?= $s['id_saida'] ?>">Deletar</a>
                     </div>
                 <?php endforeach; ?>
             </div>

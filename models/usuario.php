@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/db/conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/db/conexao.php';
 
 class Usuario
 {
@@ -99,10 +99,10 @@ class Usuario
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['foto_usuario'] = $usuario['foto_usuario'];
 
-            header('Location: /defi/index.php');
+            header('Location: /smartcash/index.php');
         } else {
             $_SESSION['aviso'] = "Email ou Senha incorretos";
-            header('Location: /defi/views/login.php');
+            header('Location: /smartcash/views/login.php');
         }
     }
 

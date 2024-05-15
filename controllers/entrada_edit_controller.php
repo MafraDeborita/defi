@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['id_usuario'])) {
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/defi/models/entrada.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/smartcash/models/entrada.php";
 
 try {
     $valor = abs($_POST['valor']);
@@ -22,7 +22,7 @@ try {
     $entrada->atualizar();
 
     $_SESSION['aviso'] = "Entrada atualizada com sucesso";
-    header('Location: /defi/views/admin/gerenciar_entradas.php');
+    header('Location: /smartcash/views/admin/gerenciar_entradas.php');
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

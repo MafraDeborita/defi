@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(!isset($_SESSION['id_usuario'])){
-    header('Location: /defi/views/login.php');
+    header('Location: /smartcash/views/login.php');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/defi/models/categoria.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/smartcash/models/categoria.php';
 
 try {
     $nome = $_POST['nome'];
@@ -15,7 +15,7 @@ try {
     $categoria->criar();
 
     $_SESSION['aviso'] = "Categoria '$categoria->nome_categoria' criada com sucesso";
-    header('Location: /defi/views/admin/gerenciar_categorias.php');
+    header('Location: /smartcash/views/admin/gerenciar_categorias.php');
     exit();
 } catch (PDOException $e) {
     echo $e->getMessage();
