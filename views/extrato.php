@@ -49,11 +49,11 @@ $_SESSION['resultado'] = $resultado;
             <div class="dadosConteudo">
                 <p class="dadosMain">Data: <?= date('d/m/Y', strtotime($item['DATA']))  ?></p>
                 <p class="dadosMain">Descrição: <?= $item['descricao'] ?></p>
-                <p class="dadosMain">Valor: <?= $item['VALOR'] ?></p>
+                <p class="dadosMain">Valor: R$ <?= $item['VALOR'] ?></p>
             </div>
         <?php endforeach; ?>
 
-        <p>TOTAL: <?= $resultado ?></p>
+        <p>TOTAL: R$ <?= $resultado ?></p>
     </div>
 
     <section class="grafico-container">
