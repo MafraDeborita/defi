@@ -12,10 +12,28 @@ if (!isset($_SESSION['id_usuario'])) {
 try {
     $lista = Saida::listar($_SESSION['id_usuario']);
 
+    // Array associativo para armazenar os valores acumulados por categoria
+    $categorias_valores = array();
+
+    // Iterar sobre a lista de entradas
+    foreach ($lista as $saida) {
+        $categoria = $saida['nome_categoria'];
+        $valor = (float)$saida['valor_saida'];
+
+        // Se a categoria já estiver no array, acumular o valor
+        if (isset($categorias_valores[$categoria])) {
+            $categorias_valores[$categoria] += $valor;
+        } else {
+            // Se não, criar uma nova entrada no array
+            $categorias_valores[$categoria] = $valor;
+        }
+    }
+
+    // Converter os dados acumulados em um formato adequado para o gráfico
     $dados_grafico = array();
     $dados_grafico[] = ['Categoria', 'Valor'];
-    foreach ($lista as $saida) {
-        $dados_grafico[] = [$saida['nome_categoria'], (float)$saida['valor_saida']];
+    foreach ($categorias_valores as $categoria => $valor) {
+        $dados_grafico[] = [$categoria, $valor];
     }
 
     $dados_grafico_json = json_encode($dados_grafico);
@@ -34,21 +52,26 @@ try {
             </div>
         </section>
     <?php endif; ?>
-    
+
     <div class="d-flex flex-column">
         <div>
             <a href="/smartcash/views/admin/adicionar_saida_form.php" class="bEntrar">Adicionar</a>
         </div>
 
 
-        <div class="row justify-content-between align-items-start">
-            <div class="card-container col-md-6">
+        <div class="row justify-content-md-between justify-content-center align-items-start">
+            <div class="card-container col-lg-6">
                 <?php foreach ($lista as $s) : ?>
                     <div class="card">
-                        R$ <?= $s['valor_saida'] ?>
-                        <h5><?= $s['nome_categoria'] ?></h5>
-                        <a class="bEntrar" href="/smartcash/views/admin/editar_saida_form.php?id=<?= $s['id_saida'] ?>">Editar</a>
-                        <a class="bEntrar" href="/smartcash/controllers/saida_deletar_controller.php?id=<?= $s['id_saida'] ?>">Deletar</a>
+                        <div class="txt-card">
+                            R$ <?= $s['valor_saida'] ?>
+                            <h5><?= $s['nome_categoria'] ?></h5>
+                        </div>
+
+                        <div class="btn-card">
+                            <a class="bEntrar" href="/smartcash/views/admin/editar_saida_form.php?id=<?= $s['id_saida'] ?>">Editar</a>
+                            <a class="bEntrar" href="/smartcash/controllers/saida_deletar_controller.php?id=<?= $s['id_saida'] ?>">Deletar</a>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
