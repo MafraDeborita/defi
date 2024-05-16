@@ -44,16 +44,26 @@ $_SESSION['resultado'] = $resultado;
             <button class="bEntrar"><a href="/smartcash/controllers/gerar_relatorio_controller.php" target="_blank">Gerar Relatório</a></button>
         </div>
 
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+            </tr>
+            <?php foreach ($listaExtrato as $item) : ?>
+                <tr>
+                    <td><?= date('d/m/Y', strtotime($item['DATA']))  ?></td>
+                    <td><?= $item['descricao'] ?></td>
+                    <td>R$ <?= $item['VALOR'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+            <tr>
+                <td colspan="2">TOTAL: </td>
+                <td>R$ <?= $resultado ?></td>
+            </tr>
+        </table>
 
-        <?php foreach ($listaExtrato as $item) : ?>
-            <div class="dadosConteudo">
-                <p class="dadosMain">Data: <?= date('d/m/Y', strtotime($item['DATA']))  ?></p>
-                <p class="dadosMain">Descrição: <?= $item['descricao'] ?></p>
-                <p class="dadosMain">Valor: R$ <?= $item['VALOR'] ?></p>
-            </div>
-        <?php endforeach; ?>
 
-        <p>TOTAL: R$ <?= $resultado ?></p>
     </div>
 
     <section class="grafico-container">
