@@ -10,7 +10,7 @@ if(!isset($_SESSION['id_usuario'])){
 
 
 try {
-    $lista = Categoria::listar();
+    $lista = Categoria::listarEntradaSaida('Despesa');;
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

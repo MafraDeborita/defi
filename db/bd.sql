@@ -12,7 +12,8 @@ CREATE TABLE usuarios(
 
 CREATE TABLE categorias(
     id_categoria INT PRIMARY KEY AUTO_INCREMENT,
-    nome_categoria VARCHAR(255) NOT NULL
+    nome_categoria VARCHAR(255) NOT NULL,
+    origem ENUM('Receita', 'Despesa')
 );
 
 CREATE TABLE saidas(
@@ -39,28 +40,29 @@ CREATE TABLE entradas(
 );
 
 -- seeds de categoria
-INSERT INTO categorias (nome_categoria) VALUES 
-('Alimentação'),
-('Moradia'),
-('Luz'),
-('Água'),
-('Salário'),
-('Freelance'),
-('Transporte'),
-('Educação'),
-('Saúde'),
-('Entretenimento'),
-('Roupas'),
-('Viagem'),
-('Impostos'),
-('Poupança'),
-('Investimentos'),
-('Presentes'),
-('Assinaturas'),
-('Seguros'),
-('Manutenção do carro'),
-('Telefone/Internet'),
-('Animais de estimação'),
-('Doações'),
-('Imprevistos'),
-('Outros');
+INSERT INTO categorias (nome_categoria, origem) VALUES 
+('Alimentação', 'Despesa'),
+('Moradia', 'Despesa'),
+('Luz', 'Despesa'),
+('Água', 'Despesa'),
+('Salário', 'Receita'),
+('Freelance', 'Receita'),
+('Transporte', 'Despesa'),
+('Educação', 'Despesa'),
+('Saúde', 'Despesa'),
+('Entretenimento', 'Despesa'),
+('Roupas', 'Despesa'),
+('Viagem', 'Despesa'),
+('Impostos', 'Despesa'),
+('Poupança', 'Receita'),
+('Investimentos', 'Receita'),
+('Presentes', 'Despesa'),
+('Assinaturas', 'Despesa'),
+('Seguros', 'Despesa'),
+('Manutenção do carro', 'Despesa'),
+('Telefone/Internet', 'Despesa'),
+('Animais de estimação', 'Despesa'),
+('Doações', 'Despesa'),
+('Imprevistos', 'Despesa'),
+('Outras Despesas', 'Despesa'),
+('Outras Receitas', 'Receita');

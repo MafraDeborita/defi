@@ -53,13 +53,13 @@ try {
         </section>
     <?php endif; ?>
 
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column w-100">
         <div>
             <a href="/smartcash/views/admin/adicionar_entrada_form.php" class="bEntrar">Adicionar</a>
         </div>
 
-        <div class="row flex-lg-row flex-md-column justify-content-md-between justify-content-center align-items-start">
-            <div class="card-container col-lg-6 col-md-12">
+        <div class="row">
+            <div class="card-container col-lg-6 align-content-start">
                 <?php foreach ($lista as $e) : ?>
                     <div class="card">
                         <div class="txt-card">
@@ -75,7 +75,7 @@ try {
                 <?php endforeach; ?>
             </div>
 
-            <div class="col-lg-5 grafico-container">
+            <div class="col-lg-6 my-3">
                 <div id="myChart"></div>
             </div>
         </div>
@@ -97,8 +97,12 @@ try {
         var options = {
             title: 'Minhas Entradas por Categoria',
             is3D: true,
-            width: 600,
-            height: 400
+            width: '100%', // Definir a largura como 100% para que o gráfico se ajuste automaticamente ao tamanho do contêiner
+            height: '100%', // Definir a altura como 100% para que o gráfico se ajuste automaticamente ao tamanho do contêiner
+            chartArea: { // Definir a área do gráfico para garantir que o gráfico se ajuste corretamente
+                width: '80%',
+                height: '80%'
+            }
         };
         var chart = new google.visualization.PieChart(document.getElementById('myChart'));
         chart.draw(data, options);

@@ -49,6 +49,10 @@ Sessao::duracao();
                             <span class="material-symbols-outlined">account_balance</span>
                             <span>Extrato</span>
                         </a>
+                        <a href="/smartcash/views/grafico.php">
+                            <span class="material-symbols-outlined">pie_chart</span>
+                            <span>Gráfico</span>
+                        </a>
                         <a href="/smartcash/views/editar_perfil.php">
                             <span class="material-symbols-outlined">account_circle</span>
                             <span>Editar Perfil</span>

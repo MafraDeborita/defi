@@ -44,6 +44,17 @@ class Categoria
         return $resultado;
     }
 
+    public static function listarEntradaSaida($origem)
+    {
+        $sql = 'SELECT * FROM categorias WHERE origem  = :origem ORDER BY nome_categoria';
+        $conexao = Conexao::criaConexao();
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindValue(':origem', $origem);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll();
+        return $resultado;
+    }
+
     public function atualizar()
     {
         $sql = 'UPDATE categorias SET nome_categoria = :nome WHERE id_categoria = :id';

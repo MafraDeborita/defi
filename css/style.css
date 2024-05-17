@@ -662,7 +662,7 @@ tr:hover {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   align-items: stretch;
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 .card {
@@ -724,44 +724,6 @@ button {
   }
 
   .card-container {
-    grid-template-columns: 1fr;
-  }
-
-  .grafico-container{
-    display: none;
-  }
-
-  #textoeduk {
-    margin: 0;
-  }
-
-  .video-wrapper {
-    height: 250px;
-  }
-}
-
-
-@media only screen and (min-width: 747px) and (max-width: 992px){
-  #conteudo{
-    grid-template-areas: 'esquerdo'
-    'direito'
-    'meio';
-  }
-
-  .logo {
-    display: flex;
-    justify-content: center;
-  }
-
-  .cont-itens {
-    width: revert;
-  }
-
-  .buttons-right {
-    padding-right: 0;
-  }
-
-  .card-container {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -777,3 +739,5 @@ button {
     height: 250px;
   }
 }
+
+

@@ -13,7 +13,7 @@ if(!isset($_SESSION['id_usuario'])){
 try {
     $id = $_GET['id'];
     $novaEntrada = new Entrada($id);
-    $categorias = Categoria::listar();
+    $categorias = Categoria::listarEntradaSaida('Receita');
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
